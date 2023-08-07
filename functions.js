@@ -1,7 +1,7 @@
 const functions = {};
-const fs = require("node:fs");
-const path = require("node:path");
-const axios = require("node:axios");
+const fs = require("fs");
+const path = require("path");
+const axios = require("axios");
 
 const mdLinksPromise = [];
 
@@ -43,6 +43,10 @@ const getMdFile = (userPath) => {
 const getMdLinks = (userPath) =>
   new Promise((resolve, reject) => {
     // Leer los archivos - files
+    fs.readFile(userPath, "utf-8", (err, data) => {
+      // Expresion regular(regex) para buscar match con los links.md
+      const regexMdLinks = /\[([^\[]+)\](\(.*\))/gm;
+      const hashtag = "#";
 
       if (err) {
         reject(newError("No se encuentra el archivo"));
@@ -80,11 +84,6 @@ const getValidateMdLinks = (getLinksUrl) => {
   const arrayValidate = getLinksUrl.map((links) => {
     const link = links;
 
-    //Agregar HTTP a todos los links que no lo tengan
-    if (!/^https?:\/\//i.test(link.href)) {
-      link.href = `http://${link.href}`;
-    }
-
     //Petición HTTP
     return axios
       .get(link.href)
@@ -103,6 +102,12 @@ const getValidateMdLinks = (getLinksUrl) => {
       });
   });
 
-
-
+  return Promise.all(arrayValidate);
 };
+
+functions.getArrayMdLinks = getArrayMdLinks;
+functions.getMdFile = getMdFile;
+functions.getMdLinks = getMdLinks;
+functions.getValidateMdLinks = getValidateMdLinks;
+
+module.exports =  functions;

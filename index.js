@@ -6,11 +6,6 @@
 
 
 
-
-
-
-
-
 // // Leer un archivo con ruta fija
 // const rutaArchivo = "testOne.md";
 

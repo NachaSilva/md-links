@@ -16,7 +16,7 @@ functions.getMdLinks(mdFilePath)
 // Prueba 3: Extraer y validar los enlaces de un archivo Markdown
 const mdFilePathToValidate = './some/example.md';
 functions.getMdLinks(mdFilePathToValidate)
-  .then((links) => functions.getValidateMDLinks(links))
+  .then((links) => functions.getValidateMdLinks(links))
   .then((validatedLinks) => {
     console.log('Enlaces validados en', mdFilePathToValidate, ':', validatedLinks);
   })
