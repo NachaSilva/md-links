@@ -43,10 +43,6 @@ const getMdFile = (userPath) => {
 const getMdLinks = (userPath) =>
   new Promise((resolve, reject) => {
     // Leer los archivos - files
-    fs.readFile(userPath, "utf-8", (err, data) => {
-      // Expresion regular(regex) para buscar match con los links.md
-      const regexMdLinks = /\[([^\[]+)\](\(.*\))/gm;
-      const hashtag = "#";
 
       if (err) {
         reject(newError("No se encuentra el archivo"));
@@ -72,13 +68,41 @@ const getMdLinks = (userPath) =>
       }
     });
   });
-  
+
 // Función para extraer las url .md de cada archivo-file
 const getArrayMdLinks = (newArrayMd) => {
-    newArrayMd.forEach((file) => mdLinksPromise.push(getMdLinks(file)));
-    return mdLinksPromise;
-  };
+  newArrayMd.forEach((file) => mdLinksPromise.push(getMdLinks(file)));
+  return mdLinksPromise;
+};
 
-  
-  
+//Función para validar los links .md
+const getValidateMdLinks = (getLinksUrl) => {
+  const arrayValidate = getLinksUrl.map((links) => {
+    const link = links;
 
+    //Agregar HTTP a todos los links que no lo tengan
+    if (!/^https?:\/\//i.test(link.href)) {
+      link.href = `http://${link.href}`;
+    }
+
+    //Petición HTTP
+    return axios
+      .get(link.href)
+      .then((resultado) =>
+        //Nuevo objeto para adicionar la propiedad status 200 si está ok
+        ({ ...link, status: resultado.status, ok: true })
+      )
+      .catch((err) => {
+        //De lo contrario, error 404
+        let status = 404;
+        if (err.resultado) {
+          status = err.resultado.status;
+        }
+        //Nuevo objeto para adicionar la propiedad status si está false
+        return { ...links, status, ok: false };
+      });
+  });
+
+
+
+};
