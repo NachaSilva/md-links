@@ -72,5 +72,13 @@ const getMdLinks = (userPath) =>
       }
     });
   });
+  
+// Función para extraer las url .md de cada archivo-file
+const getArrayMdLinks = (newArrayMd) => {
+    newArrayMd.forEach((file) => mdLinksPromise.push(getMdLinks(file)));
+    return mdLinksPromise;
+  };
 
+  
+  
 
