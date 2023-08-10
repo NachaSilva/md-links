@@ -13,6 +13,7 @@ functions.getMdLinks(mdFilePath)
     console.error('Error:', error.message);
   });
 
+
 // Prueba 3: Extraer y validar los enlaces de un archivo Markdown
 const mdFilePathToValidate = './some/example.md';
 functions.getMdLinks(mdFilePathToValidate)

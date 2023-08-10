@@ -7,17 +7,6 @@ const mdLinksPromise = [];
 
 // Busqueda recursiva de archivos .md dentro de un directorio, subdirectorios. Devuelve lista de rutas absolutas
 const getMdFile = (userPath) => {
-  // Convertir a ruta absoluta
-  const getAbsolutePath = (userPath) => path.resolve(userPath);
-
-  // Verificar si el file es valor booleano
-  const fileCheck = (userPath) => fs.statSync(userPath).isFile();
-
-  // Que la extensión sea .md
-  const getMdExtensionFile = (userPath) => path.extname(userPath) === ".md";
-
-  //Leer el directorio
-  const readDirectory = (userPath) => fs.readdirSync(userPath);
 
   let arrayPathFilesMd = [];
 
@@ -38,6 +27,18 @@ const getMdFile = (userPath) => {
   }
   return arrayPathFilesMd;
 };
+
+  // Convertir a ruta absoluta
+  const getAbsolutePath = (userPath) => path.resolve(userPath);
+
+  // Verificar si el file es valor booleano
+  const fileCheck = (userPath) => fs.statSync(userPath).isFile();
+
+  // Que la extensión sea .md
+  const getMdExtensionFile = (userPath) => path.extname(userPath) === ".md";
+
+  //Leer el directorio
+  const readDirectory = (userPath) => fs.readdirSync(userPath);
 
 // Función para extraer los links
 const getMdLinks = (userPath) =>

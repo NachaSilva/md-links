@@ -17,7 +17,7 @@
 //   }
 // });
 
-// // Extensión de una archivo
+// Extensión de una archivo
 
 
 // const nombreArchivo = "testOne.md"; //
@@ -26,7 +26,7 @@
 
 // console.log("Extensión del archivo:", extension);
 
-// // Unir 2 rutas:
+// Unir 2 rutas:
 
 // const ruta1 = "/home/Laboratoria/";
 // const ruta2 = "./test";
@@ -35,26 +35,26 @@
 
 // console.log("Ruta unida:", rutaUnida);
 
-// // function pathExists(filePath) {
-// //     return new Promise((resolve) => {
-// //       fs.access(filePath, fs.constants.F_OK, (err) => {
-// //         if (err) {
-// //           resolve(false);
-// //         } else {
-// //           resolve(true);
-// //         }
-// //       });
-// //     });
-// //   }
-// //   module.exports = pathExists;
-// // module.exports = () => {
-// //   // ...
-// // };
+// function pathExists(filePath) {
+//     return new Promise((resolve) => {
+//       fs.access(filePath, fs.constants.F_OK, (err) => {
+//         if (err) {
+//           resolve(false);
+//         } else {
+//           resolve(true);
+//         }
+//       });
+//     });
+//   }
+//   module.exports = pathExists;
+// module.exports = () => {
+//   // ...
+// };
 
-// // export const mdLinks= (path, options) => {
+// export const mdLinks= (path, options) => {
 
-// // }
-// // const sum = require('./sum');
+// }
+// const sum = require('./sum');
 
-// // //common .js
-// // console.log(sum(1,2));
+// //common .js
+// console.log(sum(1,2));
