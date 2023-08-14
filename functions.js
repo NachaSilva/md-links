@@ -3,13 +3,12 @@ const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
 
+
 const mdLinksPromise = [];
 
 // Busqueda recursiva de archivos .md dentro de un directorio, subdirectorios. Devuelve lista de rutas absolutas
 const getMdFile = (userPath) => {
-
   let arrayPathFilesMd = [];
-
   const userPathAbsolute = getAbsolutePath(userPath);
 
   if (fileCheck(userPathAbsolute)) {

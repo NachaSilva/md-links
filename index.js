@@ -3,7 +3,9 @@
 // const extractLinks = require("./functions");
 // const validateLinks = require("./functions");
 
-
+// module.exports = () => {
+//     // ...
+//   };
 
 
 // // Leer un archivo con ruta fija
