@@ -3,7 +3,6 @@ const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
 
-
 const mdLinksPromise = [];
 
 // Busqueda recursiva de archivos .md dentro de un directorio, subdirectorios. Devuelve lista de rutas absolutas
@@ -27,51 +26,61 @@ const getMdFile = (userPath) => {
   return arrayPathFilesMd;
 };
 
-  // Convertir a ruta absoluta
-  const getAbsolutePath = (userPath) => path.resolve(userPath);
+// Convertir a ruta absoluta
+const getAbsolutePath = (userPath) => path.resolve(userPath);
 
-  // Verificar si el file es valor booleano
-  const fileCheck = (userPath) => fs.statSync(userPath).isFile();
+// Verificar si el file es valor booleano
+const fileCheck = (userPath) => fs.statSync(userPath).isFile();
 
-  // Que la extensión sea .md
-  const getMdExtensionFile = (userPath) => path.extname(userPath) === ".md";
+// Que la extensión sea .md
+const getMdExtensionFile = (userPath) => path.extname(userPath) === ".md";
 
-  //Leer el directorio
-  const readDirectory = (userPath) => fs.readdirSync(userPath);
+//Leer el directorio
+const readDirectory = (userPath) => fs.readdirSync(userPath);
 
 // Función para extraer los links
-const getMdLinks = (userPath) =>
-  new Promise((resolve, reject) => {
-    // Leer los archivos - files
-    fs.readFile(userPath, "utf-8", (err, data) => {
-      // Expresion regular(regex) para buscar match con los links.md
-      const regexMdLinks = /\[([^\[]+)\](\(.*\))/gm;
-      const hashtag = "#";
+const getMdLinks = (userPaths) => {
+  return new Promise((resolve, reject) => {
+    const allLinks = [];
+    const hashtag = "#";
+    // Expresion regular(regex) para buscar match con los links.md
+    const regexMdLinks = /\[([^\[]+)\](\(.*\))/gm;
 
-      if (err) {
-        reject(newError("No se encuentra el archivo"));
-      } else if (data.match(regexMdLinks)) {
-        const matchMdLinks = data.match(regexMdLinks);
+    userPaths.forEach((userPath) => {
+      // Leer los archivos - files
+      fs.readFile(userPath, "utf-8", (err, data) => {
+        if (err) {
+          reject(new Error("No se encuentra el archivo"));
+        } else {
+          const matchMdLinks = data.match(regexMdLinks);
 
-        const arrayMdLinks = matchMdLinks.map((link) => {
-          //Convierte los strings en un array y elimina ']('
-          const arraySplit = link.split("](");
-          // Al 1er texto de cada arr remplazar [ por vacio
-          const text = arraySplit[0].replace("[", "");
-          // Al 2do texto de cada arr remplazar ) por vacio
-          const href = arraySplit[1].replace(")", "");
-          return { href, text, userPath };
-        });
-        // filtrar en el array con # para quitar links internos
-        const getURL = arrayMdLinks.filter(
-          (text) => !text.href.startsWith(hashtag)
-        );
-        resolve(getURL);
-      } else {
-        resolve([]);
-      }
+          if (matchMdLinks) {
+            const arrayMdLinks = matchMdLinks.map((link) => {
+              //Convierte los strings en un array y elimina ']('
+              const arraySplit = link.split("](");
+              // Al 1er texto de cada arr remplazar [ por vacio
+              const text = arraySplit[0].replace("[", "");
+              // Al 2do texto de cada arr remplazar ) por vacio
+              const href = arraySplit[1].replace(")", "");
+              return { href, text, userPath };
+            });
+            // filtrar en el array con # para quitar links internos
+            const getURL = arrayMdLinks.filter(
+              (text) => !text.href.startsWith(hashtag)
+            );
+            allLinks.push(...getURL);
+          }
+          if (allLinks.length > 0) {
+            console.log(123, allLinks);
+            resolve(allLinks);
+          } else {
+            resolve([]);
+          }
+        }
+      });
     });
   });
+};
 
 // Función para extraer las url .md de cada archivo-file
 const getArrayMdLinks = (newArrayMd) => {
@@ -110,4 +119,4 @@ functions.getMdFile = getMdFile;
 functions.getMdLinks = getMdLinks;
 functions.getValidateMdLinks = getValidateMdLinks;
 
-module.exports =  functions;
+module.exports = functions;
