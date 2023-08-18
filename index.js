@@ -21,51 +21,6 @@ const mdLinks = (path, options) => {
       resolve(links);
     }
   })
- 
-  // if (options.validate) {
-  //   return links
-  //     .then((link) => functions.getValidateMdLinks(link))
-  //     .then((validatedLinks) => {
-  //       return validatedLinks;
-  //     });
-  // }
-  // else {
-  //     return links
-  // }
-   
-
-    // console.log("1111111", links);
-    // if (options.validate) {
-    //   return links
-    //     .then((link) => functions.getValidateMdLinks(link))
-    //     .then((validatedLinks) => {
-    //       return validatedLinks;
-    //     });
-    // }
-    // else {
-    //     return links
-    // }
-  
-
-//array de links
-
-
-
-//   // true
-//   if (options.validate) {
-//     const links = functions
-//       .getMdLinks(mdFiles[0])
-//       .then((links1) => functions.getValidateMdLinks(links1))
-//       .then((validatedLinks) => {
-//         return validatedLinks;
-//       });
-//     return links;
-//   }
-//   // false
-//   else {
-//     const links = functions.getMdLinks(mdFiles[0]);
-//     return links;
-//   }
 };
 
  mdLinks("./some", { validate: false })

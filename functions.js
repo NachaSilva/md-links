@@ -74,7 +74,7 @@ const getMdLinks = (userPaths) => {
 };
 
 // Leer los archivos - files
-// fs.readFileSync(userPath, "utf-8", (err, data) => {
+// fs.readFile(userPath, "utf-8", (err, data) => {
 //   if (err) {
 //     reject(new Error("No se encuentra el archivo"));
 //   } else {
