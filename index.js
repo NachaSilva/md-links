@@ -4,18 +4,47 @@ const functions = require("./functions.js");
 //   };
 
 const mdLinks = (path, options) => {
-  const mdFiles = functions.getMdFile(path);
+  return new Promise((resolve, reject)=>{
+    const mdFiles = functions.getMdFile(path);
+    //resolve(functions.getMdLinks(mdFiles));
     const links = functions.getMdLinks(mdFiles);
-    if (options.validate) {
-      return links
-        .then((link) => functions.getValidateMdLinks(link))
-        .then((validatedLinks) => {
-          return validatedLinks;
-        });
+
+    if(options && options.validate){
+      functions.getValidateMdLinks(links)
+      .then((validatedLinks) => {
+        resolve(validatedLinks);
+      })
+      .catch((error) => {
+        reject(error);
+      })
+    }else{
+      resolve(links);
     }
-    else {
-        return links
-    }
+  })
+ 
+  // if (options.validate) {
+  //   return links
+  //     .then((link) => functions.getValidateMdLinks(link))
+  //     .then((validatedLinks) => {
+  //       return validatedLinks;
+  //     });
+  // }
+  // else {
+  //     return links
+  // }
+   
+
+    // console.log("1111111", links);
+    // if (options.validate) {
+    //   return links
+    //     .then((link) => functions.getValidateMdLinks(link))
+    //     .then((validatedLinks) => {
+    //       return validatedLinks;
+    //     });
+    // }
+    // else {
+    //     return links
+    // }
   
 
 //array de links
@@ -39,7 +68,7 @@ const mdLinks = (path, options) => {
 //   }
 };
 
- mdLinks("./some", { validate: true })
+ mdLinks("./some", { validate: false })
   .then((links) => {
     console.log("Enlaces encontrados en :", links);
   })
