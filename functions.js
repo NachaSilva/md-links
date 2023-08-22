@@ -74,39 +74,6 @@ const getMdLinks = (userPaths) => {
   return allLinks;
 };
 
-// Leer los archivos - files
-// fs.readFile(userPath, "utf-8", (err, data) => {
-//   if (err) {
-//     reject(new Error("No se encuentra el archivo"));
-//   } else {
-//     const matchMdLinks = data.match(regexMdLinks);
-
-//     if (matchMdLinks) {
-//       const arrayMdLinks = matchMdLinks.map((link) => {
-//         //Convierte los strings en un array y elimina ']('
-//         const arraySplit = link.split("](");
-//         // Al 1er texto de cada arr remplazar [ por vacio
-//         const text = arraySplit[0].replace("[", "");
-//         // Al 2do texto de cada arr remplazar ) por vacio
-//         const href = arraySplit[1].replace(")", "");
-//         return { href, text, userPath };
-//       });
-//       console.log("88888888", arrayMdLinks);
-//       // filtrar en el array con # para quitar links internos
-//       const getURL = arrayMdLinks.filter(
-//         (text) => !text.href.startsWith(hashtag)
-//       );
-//       allLinks.push(...getURL);
-//     }
-//     if (allLinks.length > 0) {
-//     //   console.log(123, allLinks);
-//       resolve(allLinks);
-//     } else {
-//       resolve([]);
-//     }
-//   }
-// });
-
 // Función para extraer las url .md de cada archivo-file
 const getArrayMdLinks = (newArrayMd) => {
   newArrayMd.forEach((file) => mdLinksPromise.push(getMdLinks(file)));
