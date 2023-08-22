@@ -9,7 +9,7 @@
     "version": "6.3.0",
     "commit": "a942adeb868f1fe54b86e34cc4fc4ddb0601700d"
   },
-  "description": "Creacion de libreria",
+  "description": "Librería que permite buscar y analizar enlaces en archivos Markdown (.md) ",
   "main": "index.js",
   "directories": {
     "test": "test"

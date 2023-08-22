@@ -40,7 +40,8 @@ const readDirectory = (userPath) => fs.readdirSync(userPath);
 
 // Función para extraer los links
 const getMdLinks = (userPaths) => {
-  console.log(userPaths);
+  //para que muestre en consola ubicación de paths
+  // console.log(userPaths);
   const allLinks = [];
   const hashtag = "#";
   // Expresion regular(regex) para buscar match con los links.md
