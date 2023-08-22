@@ -27,3 +27,5 @@ const mdLinks = (path, options) => {
   .catch((error) => {
     console.error("Error:", error.message);
   });
+
+  module.exports = mdLinks;
