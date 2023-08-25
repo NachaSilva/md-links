@@ -40,6 +40,7 @@ const readDirectory = (userPath) => fs.readdirSync(userPath);
 
 // Función para extraer los links
 const getMdLinks = (userPaths) => {
+
   //para que muestre en consola ubicación de paths
   // console.log(userPaths);
   const allLinks = [];

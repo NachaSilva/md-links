@@ -6,7 +6,7 @@ const path = args[0];
 
 const options = {
   validate: args.includes("--validate"),
-  stats: args.includes("--stats"), // Use "--stats" instead of "stats"
+  stats: args.includes("--stats"), 
 };
 
 mdLinks(path, options)
@@ -40,18 +40,3 @@ mdLinks(path, options)
   .catch((error) => {
     console.log("Error", error.message);
   });
-
-// .then((links) => {
-//     links.forEach((link) => {
-//       if (options.validate) {
-//         console.log(
-//           `${path} ${link.href} ${link.ok ? "ok" : "fail"} ${link.status} ${link.text}`
-//         );
-//       } else {
-//         console.log(`${path} ${link.href} ${link.text}`);
-//       }
-//     });
-//   })
-//   .catch((error) => {
-//     console.log("Error", error.message);
-//   });
