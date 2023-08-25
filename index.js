@@ -20,12 +20,12 @@ const mdLinks = (path, options) => {
   })
 };
 
- mdLinks("./some", { validate: false })
-  .then((links) => {
-    console.log("Enlaces encontrados en :", links);
-  })
-  .catch((error) => {
-    console.error("Error:", error.message);
-  });
+//  mdLinks("./some/", { validate: false })
+//   .then((links) => {
+//     console.log("Enlaces encontrados en :", links);
+//   })
+//   .catch((error) => {
+//     console.error("Error:", error.message);
+//   });
 
   module.exports = mdLinks;
