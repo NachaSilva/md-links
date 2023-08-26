@@ -19,8 +19,9 @@ const mdLinks = (path, options) => {
     }
   })
 };
+//./test/some/example.md"
 
-//  mdLinks("./some/", { validate: false })
+//  mdLinks("./test/some/example.md", { validate: false })
 //   .then((links) => {
 //     console.log("Enlaces encontrados en :", links);
 //   })
