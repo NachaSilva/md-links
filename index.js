@@ -21,7 +21,7 @@ const mdLinks = (path, options) => {
 };
 //./test/some/example.md"
 
-//  mdLinks("./test/some/example.md", { validate: false })
+//  mdLinks("./test/some/example.md", { validate: true })
 //   .then((links) => {
 //     console.log("Enlaces encontrados en :", links);
 //   })

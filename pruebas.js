@@ -1,6 +1,6 @@
 // const functions = require('./functions.js');
 
-// const mdFiles = functions.getMdFile('./some/example.md');
+// const mdFiles = functions.getMdFile('./test/some');
 // console.log('Lista de archivos Markdown encontrados:', mdFiles);
 
 // // Prueba 2: Extraer los enlaces de un archivo Markdown 
