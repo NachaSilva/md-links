@@ -3,7 +3,6 @@ const functions = require("./functions.js");
 const mdLinks = (path, options) => {
   return new Promise((resolve, reject)=>{
     const mdFiles = functions.getMdFile(path);
-    //resolve(functions.getMdLinks(mdFiles));
     const links = functions.getMdLinks(mdFiles);
 
     if(options && options.validate){

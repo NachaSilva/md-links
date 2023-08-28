@@ -1,5 +1,5 @@
 {
-  "name": "md-links",
+  "name": "@nachasilva/md-links",
   "version": "0.1.0",
   "engines": {
     "node": ">=16.x"
@@ -9,7 +9,10 @@
     "version": "6.3.0",
     "commit": "a942adeb868f1fe54b86e34cc4fc4ddb0601700d"
   },
-  "description": "Librería que permite buscar y analizar enlaces en archivos Markdown (.md) ",
+  "description": "Librería que permite buscar y analizar enlaces en archivos Markdown (.md) y generar estadísticas ",
+  "bin": {
+    "md-links": "./cli.js "
+  },
   "main": "index.js",
   "directories": {
     "test": "test"
