@@ -26,7 +26,7 @@ Es por esto que se crea este proyecto, una herramienta de línea de comandos (CL
 3. Ejecuta el siguiente comando para instalar la librería:
 
 ```sh 
-npm install 
+npm install -g @nachasilva/md-links
 ```
 
 ## 3. ¿Cómo se usa?
@@ -103,7 +103,20 @@ Broken: 1
 ```
 
 ## 5. Demo
+1. **md-links ruta**
+![ruta](./img/ruta.png)
 
+2. **md-links ruta -- validate**
+![validate](./img/validate.png)
+
+3. **md-links ruta --stats** 
+![stats](./img/stats.png)
+
+4. **md-links ruta --stats --validate**
+![statsvalidate](./img/statsvalidate.png) 
+
+5. **md-links --help** 
+![statsvalidate](./img/help.png) 
 
 ## 6. Autora
 

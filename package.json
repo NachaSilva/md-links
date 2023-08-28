@@ -4,6 +4,9 @@
   "engines": {
     "node": ">=16.x"
   },
+  "author": {
+    "name": "Ignacia Silva"
+  },
   "bootcamp": {
     "createdAt": "2023-06-28T16:05:09.952Z",
     "version": "6.3.0",
@@ -11,7 +14,7 @@
   },
   "description": "Librería que permite buscar y analizar enlaces en archivos Markdown (.md) y generar estadísticas ",
   "bin": {
-    "md-links": "./cli.js "
+    "md-links": "cli.js"
   },
   "main": "index.js",
   "directories": {
@@ -25,7 +28,6 @@
     "type": "git",
     "url": "git+https://github.com/NachaSilva/md-links.git"
   },
-  "author": "Ignacia Silva",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NachaSilva/md-links/issues"
