@@ -36,7 +36,7 @@ npm i @nachasilva/md-links
 
 ## 3. ¿Cómo se usa?
 
-###Como módulo:
+### Como módulo:
 ```sh
 const mdLinks = require("md-links");
 
@@ -58,7 +58,7 @@ mdLinks("./some/dir")
   })
   .catch(console.error); 
 ```
-###Como CLI:
+### Como CLI: 
 Ya teniendo la librería instalada, puedes usarla proporcionando los datos en la terminal de la siguiente manera:
 
 ```sh 
