@@ -23,14 +23,43 @@ Es por esto que se crea este proyecto, una herramienta de línea de comandos (CL
 
 1. Instala Node.js en tu computador si aún no lo has hecho.
 2. Abre tu terminal y navega hasta el proyecto donde deseas utilizar MD-Links.
-3. Ejecuta el siguiente comando para instalar la librería:
 
+Instalar el paquete de forma global:
 ```sh 
 npm install -g @nachasilva/md-links
 ```
 
+Instalar el paquete localmente en el directorio del proyecto actual:
+```sh 
+npm i @nachasilva/md-links
+```
+
 ## 3. ¿Cómo se usa?
-  Ya teniendo la librería instalada, puedes usarla proporcionando los datos en la terminal de la siguiente manera:
+
+###Como módulo:
+```sh
+const mdLinks = require("md-links");
+
+mdLinks("./some/example.md")
+  .then(links => {
+    // => [{ href, text, file }, ...]
+  })
+  .catch(console.error);
+
+mdLinks("./some/example.md", { validate: true })
+  .then(links => {
+    // => [{ href, text, file, status, ok }, ...]
+  })
+  .catch(console.error);
+
+mdLinks("./some/dir")
+  .then(links => {
+    // => [{ href, text, file }, ...]
+  })
+  .catch(console.error); 
+```
+###Como CLI:
+Ya teniendo la librería instalada, puedes usarla proporcionando los datos en la terminal de la siguiente manera:
 
 ```sh 
 md-links <path-to-file> [options]
