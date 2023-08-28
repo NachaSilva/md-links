@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-// const picocolors = require("picocolors");
 const mdLinks = require("./index.js");
 const pc = require("picocolors");
-//const meow = require("meow");
 
 const args = process.argv.slice(2);
 const path = args[0];
