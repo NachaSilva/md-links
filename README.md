@@ -110,6 +110,6 @@ Broken: 1
 **Ignacia Silva** *-* *agosto 2023.* 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme [Aquí](https://www.linkedin.com/in/mariaignaciasilva/)
 
-¡Espero que te ayude mucho md-links en tus proyectos!
+Espero que te ayude mucho md-links en tus proyectos!
 
 Happy linking! 📎🌟
