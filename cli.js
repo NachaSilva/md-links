@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+// const picocolors = require("picocolors");
 const mdLinks = require("./index.js");
+const pc = require("picocolors");
 
 const args = process.argv.slice(2);
 const path = args[0];
@@ -16,23 +18,23 @@ mdLinks(path, options)
     const totalLinks = result.length;
     const uniqueLinks = new Set(result.map((link)=> link.href)).size;
     const brokenLinks = result.filter((link)=> !link.ok).length;
-    console.log(`Total: ${totalLinks}`);
-    console.log(`Unique: ${uniqueLinks}`);
-    console.log(`Broken: ${brokenLinks}`);
+    console.log(`Total: ${pc.green(totalLinks)}`);
+    console.log(`Unique: ${pc.blue(uniqueLinks)}`);
+    console.log(`Broken: ${pc.red(brokenLinks)}`);
     }else{
       const totalLinks = result.length;
       const uniqueLinks = new Set(result.map((link) => link.href)).size;
-      console.log(`Total: ${totalLinks}`);
-      console.log(`Unique: ${uniqueLinks}`);
+      console.log(`Total: ${pc.green(totalLinks)}`);
+      console.log(`Unique: ${pc.blue(uniqueLinks)}`);
     }
  } else {
       result.forEach((link) => {
         if (options.validate) {
           console.log(
-            `${path} ${link.href} ${link.ok ? "ok" : "fail"} ${link.status} ${link.text}`
+            `${pc.cyan(path)} ${pc.blue(link.href)} ${pc.bgGreen(link.ok ? "ok" : "fail")} ${pc.yellow(link.status)} ${pc.gray(link.text)}`
           );
         } else {
-          console.log(`${path} ${link.href} ${link.text}`);
+          console.log(`${pc.cyan(path)} ${pc.blue(link.href)} ${pc.gray(link.text)}`);
         }
       });
     }
