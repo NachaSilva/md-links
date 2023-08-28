@@ -48,7 +48,7 @@ mdLinks(path, options)
       result.forEach((link) => {
         if (options.validate) {
           console.log(
-            `${pc.cyan(path)} ${pc.blue(link.href)} ${pc.bgGreen(link.ok ? "ok" : "fail")} ${pc.yellow(link.status)} ${pc.gray(link.text)}`
+            `${pc.cyan(path)} ${pc.blue(link.href)} ${link.ok ? pc.bgGreen("ok") : pc.bgRed("fail")} ${pc.yellow(link.status)} ${pc.gray(link.text)}`
           );
         } else {
           console.log(`${pc.cyan(path)} ${pc.blue(link.href)} ${pc.gray(link.text)}`);
