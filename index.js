@@ -18,7 +18,6 @@ const mdLinks = (path, options) => {
     }
   })
 };
-//./test/some/example.md"
 
 //  mdLinks("./test/some/example.md", { validate: true })
 //   .then((links) => {
@@ -28,4 +27,4 @@ const mdLinks = (path, options) => {
 //     console.error("Error:", error.message);
 //   });
 
-  module.exports = require(mdLinks);
+  exports = module.exports = mdLinks;
