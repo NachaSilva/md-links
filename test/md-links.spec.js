@@ -6,9 +6,6 @@ const mdLinks = require("../index");
 const preFixPath = path.resolve("../.");
 console.log(preFixPath);
 
-const mock = {
-  get: jest.fn(),
-};
 
 describe("mdLinks", () => {
   it("Verificar si es una función", () => {
