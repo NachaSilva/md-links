@@ -2,6 +2,7 @@
 // const picocolors = require("picocolors");
 const mdLinks = require("./index.js");
 const pc = require("picocolors");
+//const meow = require("meow");
 
 const args = process.argv.slice(2);
 const path = args[0];
@@ -9,7 +10,25 @@ const path = args[0];
 const options = {
   validate: args.includes("--validate"),
   stats: args.includes("--stats"), 
+  help: args.includes("--help"),
 };
+
+if(options.help){
+  console.log(`
+  ${pc.bgBlue("**************************")}
+  ${pc.bgBlue("**")} ${pc.bold("Welcome to MdLinks!!")} ${pc.bgBlue("**")}
+  ${pc.bgBlue("**************************")}
+
+  ${pc.bold("Usage:")}
+  md-links <path-to-file> [options]
+
+  ${pc.bold("Options:")}
+  ${pc.blue("--validate")}: Check if the link works
+  ${pc.magenta('--stats')}: Display basic link stadistics 
+  ${pc.yellow("--stats --validate")}: Display stadistics that require validation results"
+
+  `)
+} else{
 
 mdLinks(path, options)
   .then((result) => {
@@ -42,3 +61,4 @@ mdLinks(path, options)
   .catch((error) => {
     console.log("Error", error.message);
   });
+}
