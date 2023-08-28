@@ -28,4 +28,4 @@ const mdLinks = (path, options) => {
 //     console.error("Error:", error.message);
 //   });
 
-  module.exports = mdLinks;
+  module.exports = require(mdLinks);
